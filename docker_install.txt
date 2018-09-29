@@ -1,0 +1,84 @@
+#
+#
+#
+
+Docker Installation
+
+Section 14 - Linux Install
+
+curl -sSL https://get.docker.com/ | sh
+
+get.docker.com
+
+#Add user to docker group - don't have to add sudo to every command
+sudo usermod -aG docker <<username>>
+sudo docker version
+
+docker-machine
+docker-compose
+
+*Note:  Manual install means manual updates
+
+#For online help
+docker <tab><tab>
+docker image <tab><tab>
+docker image ls --<tab><tab>
+
+Section 18
+docker version
+docker info
+
+#New - docker management commands
+docker <command> <subcommand> 
+example:  docker container run
+
+Section 19
+Image vs Container
+Image - bin,lib,src code that make up an application
+Container - Running instance of an Image
+
+Registry - "github" of docker images
+
+docker container run --publish 80:80 nginx
+
+#from browser
+http://localhost
+
+#Sequence of events
+1. Download image "nginx"
+2. Started a new container from image
+3. Opened port 80 on the host IP
+4. Routes HTTP traffic to the container IP (port 80)
+
+#different port example - 8888:80
+8888 - host ip port
+80 - Container ip port
+
+#example docker commands
+docker container run --publish 80:80 --detach nginx
+docker container ls
+docker container stop <container_id>
+docker container ls -a
+
+docker container run publish 80:80 --detach --name webhost nginx
+***Refresh browser localhost a few times
+docker container logs webhost
+docker container top webhost
+docker container rm <container_id>
+###NOTE:  Cannot remove a running container
+docker container rm -f <container_id>
+### -f will remove a running container_id
+
+Lecture 20
+'docker container run' debrief
+
+Lecture 21
+docker run --name mongo -d mongo
+docker stop mongo
+ps aux | grep mongo
+docker start mongo
+
+Lecture 23 - assignment
+
+
+docker con
