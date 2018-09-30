@@ -6,25 +6,47 @@ Docker Installation
 
 Section 14 - Linux Install
 
+### Note: following curl install does not work on AWS Amazon AMI O/S
 curl -sSL https://get.docker.com/ | sh
 
 get.docker.com
 
+### Instructions for each distro
+store.docker.com
+
+
 #Add user to docker group - don't have to add sudo to every command
 sudo usermod -aG docker <<username>>
+example:  sudo usermod -aG docker ubuntu
+
 sudo docker version
 
 docker-machine
+### Instructions to install on docs.docker.com
+https://docs.docker.com/machine/install-machine/#install-machine-directly
+###Verify after install
+docker-machine version
+
+
 docker-compose
+### Instructions to install on docs.docker.com
+https://docs.docker.com/search/?q=docker-compose
+###Verify after install
+docker-compose --version
 
 *Note:  Manual install means manual updates
+
+###GitHub code repository
+git clone https://github.com/BretFisher/udemy-docker-mastery.git
 
 #For online help
 docker <tab><tab>
 docker image <tab><tab>
 docker image ls --<tab><tab>
 
+
 Section 18
+-------------------
 docker version
 docker info
 
