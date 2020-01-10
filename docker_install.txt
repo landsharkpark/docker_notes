@@ -2,6 +2,9 @@
 #
 #
 
+# help - https://docs.docker.com and 
+#  CLI docker --help
+
 Docker Installation
 
 Section 14 - Linux Install
@@ -101,6 +104,86 @@ ps aux | grep mongo
 docker start mongo
 
 Lecture 23 - assignment
+docker container run -d --name proxy -p 80:80 nginx
+docker container run -d --name webserver -p 8080:80 httpd
+docker container run -d -p 3306:3306 --name db -e MYSQL_RANDOM_ROOT_PASSWORD=yes mysql
+
+docker container logs db 
+
+docker container ls
+
+curl localhost
+
+curl localhost:8080
+
+docker container rm -f <container_id>
+
+Lecture 25 - CLI Process Monitoring
+
+docker container run -d --name nginx nginx
+
+docker container run -d --name mysql -e MYSQL_RANDOM_ROOT_PASSWORD=true mysql
+
+docker container top mysql
+docker container top nginx
+
+docker container inspect mysql
+docker container inspect nginx
+
+docker container stack --help
+docker container stack
+
+Lecture 26 - Getting a Shell inside container
+
+docker container run -it
+docker container exec -it
+
+docker container run -it --name proxy nginx bash
+
+root@7d4ec45f400d:/# ls -al
+
+root@7d4ec45f400d:/# exit
+
+docker container run -it --name ubuntu ubuntu
+
+docker container start --help
+
+docker container start -ai ubuntu
+
+docker container exec --help
+
+docker container exec -it mysql bash
+
+docker pull alpine
+
+docker image ls
+
+## This will error - bash is not in alpine image
+docker container run -it alpine bash 
+
+docker container run -it alpine sh
+
+Lecture 27 - Docker Networks Concepts for Private and Public Comms in Containers
+
+docker container run -p
+
+docker container port <container>
+
+-p --publish
+
+docker container port webhost
+
+docker container inspect --format '{{ .NetworkSettings.IPAddress }}' webhost
+
+Lecture 28 - Fix for Nginx
+replace nginx with nginx:alpine 
+-> nginx:alpine will allow ping
 
 
-docker con
+
+
+
+
+
+
+
